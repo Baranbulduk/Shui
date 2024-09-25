@@ -1,0 +1,21 @@
+.post {
+  padding: 5px;
+  background-color: beige;
+  height: 100px;
+}
+
+.anslag {
+  border: 1px solid #d22020;
+  padding: 10px;
+  margin: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.username {
+  color: black;
+}
+
+.message {
+  color: black;
+}
