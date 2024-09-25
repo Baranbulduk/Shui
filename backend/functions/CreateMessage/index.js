@@ -34,7 +34,7 @@ exports.handler = async (event) => {
       id: uuidv4(),
       username: username,
       message: message,
-      timestamp: new Date().toISOString()
+      createdAt: new Date().toISOString()
     }
   };
 

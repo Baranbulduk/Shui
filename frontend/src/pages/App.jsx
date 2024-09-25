@@ -1,44 +1,35 @@
-import React from 'react'
 import './App.css'
+import React, { useState, useEffect } from 'react';
 
 function App() {
 
-  document.getElementById('messageForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    
-    const id = document.getElementById('id').value;
-    const username = document.getElementById('username').value;
-    const text = document.getElementById('text').value;
+  const [data, setData] = useState([]);
 
-    const response = await fetch('/api/postMessage', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id, username, text })
-    });
-
-    if (response.ok) {
-        alert('Meddelandet skickades!');
-    } else {
-        alert('Ett fel uppstod.');
-    }
-});
+  useEffect(() => {
+    // Definiera en asynkron funktion för att hämta data
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://3wdwn7v146.execute-api.eu-north-1.amazonaws.com/');
+        const result = await response.json();
+        setData(result); // Uppdatera state med den hämtade datan
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, []); // Tom array som andra argument gör att detta bara körs en gång när komponenten mountas
 
   return (
     <>
-      <form id="messageForm">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required /><br></br>
-        
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required /><br></br>
-        
-        <label for="text">Text:</label>
-        <textarea id="text" name="text" required></textarea><br></br>
-        
-        <button type="submit">Skicka</button>
-      </form>
+       <div>
+        {data.map((item, index) => (
+        <div key={index}>
+        <p>{item.message}</p>
+        <h3>{item.username}</h3>
+        </div>
+        ))}
+      </div>
     </>
   )
 }
