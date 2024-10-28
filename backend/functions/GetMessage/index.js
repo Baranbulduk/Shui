@@ -1,4 +1,4 @@
-const dynamoDb = require('../../config/dynamoDbConfig');
+const dynamoDb = require('../../config/dynamoDbConfig.js');
 
 exports.handler = async (event) => {
     const params = {

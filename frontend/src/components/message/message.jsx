@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './message.css';
+import './Message.css';
 
-function MessageComponent() {
+function Message() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -9,6 +9,9 @@ function MessageComponent() {
         try {
           const response = await fetch('https://3wdwn7v146.execute-api.eu-north-1.amazonaws.com/admin/message');
           const result = await response.json();
+          
+          console.log(result);
+          
           setData(result);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -24,7 +27,7 @@ function MessageComponent() {
 
   return (
     <>
-     <div>
+     <div>      
         {data.map((item, index) => (
         <div key={index} className="post">
           <p className='username'>{item.username}</p>
@@ -39,4 +42,4 @@ function MessageComponent() {
   );
 }
 
-export default MessageComponent;
+export default Message;

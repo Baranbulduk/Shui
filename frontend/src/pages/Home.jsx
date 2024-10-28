@@ -1,6 +1,6 @@
 import React from 'react';
-import MessageComponent from '../components/message/message.jsx';
-import Header from '../components/header/header.jsx';
+import Message from '../components/message/message.jsx';
+import Header from '../components/header/Header.jsx';
 
 function Home() {
   return (
@@ -9,7 +9,7 @@ function Home() {
         <div className='app'>
             <div className='content'>
             <Header />
-            <MessageComponent />
+            <Message />
             </div>
         </div>
     </div>
