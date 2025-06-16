@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Message.css';
+import './message.css';
 
 function Message() {
     const [data, setData] = useState([]);
