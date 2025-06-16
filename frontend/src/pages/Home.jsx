@@ -1,6 +1,6 @@
 import React from 'react';
 import Message from '../components/message/message.jsx';
-import Header from '../components/header/Header.jsx';
+import Header from '../components/header/header.jsx';
 
 function Home() {
   return (
