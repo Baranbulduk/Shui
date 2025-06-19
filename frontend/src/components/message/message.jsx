@@ -25,6 +25,22 @@ function Message() {
       window.location.href = `http://localhost:5173/addMessages?id=${id}&username=${username}&message=${message}`;
     };
 
+    const handleDeleteClick = async (id) => {
+      if (!window.confirm('Are you sure you want to delete this message?')) return;
+      try {
+        const response = await fetch(`https://3wdwn7v146.execute-api.eu-north-1.amazonaws.com/message/${id}`, {
+          method: 'DELETE',
+        });
+        if (response.ok) {
+          setData(data.filter(item => item.id !== id));
+        } else {
+          alert('Failed to delete message.');
+        }
+      } catch (error) {
+        alert('Error deleting message.');
+      }
+    };
+
   return (
     <>
      <div>      
@@ -35,6 +51,7 @@ function Message() {
           <p className='message'>{item.message}</p></div>
           <p className='username'>{new Date(item.createdAt).toLocaleDateString()} {new Date(item.createdAt).toLocaleTimeString()}</p>
           <button className='updatebutton' onClick={() => handleUpdateClick(item.id, item.username, item.message)}>Update</button>
+          <button className='deletebutton' onClick={() => handleDeleteClick(item.id)}>Delete</button>
         </div>
         ))}
       </div>

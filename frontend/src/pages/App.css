@@ -4,8 +4,13 @@
 
 .background {
   background-color: darkslategray;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .app {
@@ -13,10 +18,10 @@
   border-radius: 15px;
   border: solid 2px rgb(32, 32, 32);
   margin: 0 auto;
-  height: 550px;
-  width: 300px;
+  width: 100%;
+  max-width: 1000px;
   text-align: center;
-  overflow: scroll;
+  box-sizing: border-box;
 }
 
 .content {
@@ -37,8 +42,8 @@
 label p {
   color: rgb(32, 32, 32);
   text-align: left;
-  margin-bottom: -20px;
-  padding: 0 5px;
+  margin-bottom: -10px;
+  padding: 0 10px;
   font-weight: 500;
   font-size: 16px;
 }
@@ -48,18 +53,37 @@ label p {
   border-radius: 5px;
   border: none;
   padding: 10px;
-  width: 90%;
-  margin-top: 0px;
+  width: 95%;
+  margin: 0 auto;
+  display: block;
 }
 
 .textarea {
   height: 200px;
   color: rgb(32, 32, 32);
+  width: 95%;
+  margin: 0 auto;
+  display: block;
 }
 
 .text {
   height: 30px;
   color: rgb(32, 32, 32);
+  width: 95%;
+  margin: 0 auto;
+  display: block;
+}
+
+.sendbutton {
+  width: 100px;
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none;
+  background-color: #000000;
+  
 }
 
 .errorMessage {
@@ -69,4 +93,8 @@ label p {
   height: 80vh;
   font-size: 16px;
   color:rgb(32, 32, 32);
+}
+
+body {
+  overflow-x: hidden;
 }

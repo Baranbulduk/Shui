@@ -74,7 +74,7 @@ function AddMessages() {
               />
             </label>
             <br />
-            <button type="submit">Send</button>
+            <button type="submit" className="sendbutton">Send</button>
           </form>
         </div>
       </div>
